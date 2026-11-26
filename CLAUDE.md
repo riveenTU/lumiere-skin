@@ -13,7 +13,7 @@ A portfolio skincare-brand homepage built from the Figma Community file **Velvet
 - One component at a time.
 - Never commit for me.
 - Don't run `npm run dev` (it never exits); I run it myself in the VS Code terminal.
-- The project plan is in docs/build-plan.md. The @theme colours/fonts there are placeholders until we extract the real ones from Figma.
+- The project plan is in docs/build-plan.md. Its @theme example is an old placeholder: the real Figma tokens are in docs/tokens.md and src/index.css.
 
 ## Commands
 
@@ -33,13 +33,15 @@ There is no test runner. Verify changes with `npm run lint` and `npm run build`.
 - **Motion** (the current name for Framer Motion): import from `motion/react`, not `framer-motion`.
 - Fonts are self-hosted with Fontsource. Images are WebP exports. Deployed on Vercel.
 
-## Architecture (target, per build plan)
+## Architecture (target, per the section map in docs/tokens.md)
 
 ```
 src/components/layout/    Navbar, MobileMenu, Footer
-src/components/sections/  Hero, BrandStory, Benefits, FeaturedProducts, Testimonials, Newsletter
-src/components/ui/        Container, Button, SectionHeading, ProductCard, TestimonialCard, Reveal
-src/data/                 content arrays (nav, benefits, products, testimonials)
+src/components/sections/  Hero, BrandStory, FeaturedProducts, About, ProcessBanner, AllProducts,
+                          Diagnosis, Testimonials, Perks, Newsletter
+src/components/ui/        Container, Button, Eyebrow, SectionHeading, ProductCard, Rating, Chip,
+                          SliderControls, Reveal
+src/data/                 content arrays (nav, features, products, testimonials, perks)
 src/hooks/                useScrolled, useLockBodyScroll
 src/lib/motion.js         shared easing, durations, variants
 ```
@@ -53,3 +55,11 @@ Rule: **sections read their content from `src/data/`, render with `ui/` componen
 ## Quality targets
 
 Mobile-first layouts checked at 375 / 768 / 1440px. Lazy-load images and give them width/height; the hero image gets `fetchpriority="high"`. Every image needs alt text. Also check visible focus states, colour contrast and meta/OG tags. Target Lighthouse 90+. Layout choices not given in Figma (e.g. mobile) go in `docs/decisions.md`.
+
+## Design references
+- Tokens and section map: docs/tokens.md
+- Build plan and folder structure: docs/build-plan.md
+- Figma exports: design/ (full pages + one crop per section, desktop and mobile)
+- Match the design exactly. Use only theme tokens from src/index.css; no arbitrary values like text-[17px] or bg-[#fff].
+- Breakpoints: design is 375px (mobile) and 1440px (desktop). Build mobile-first.
+- Record design decisions and deviations in docs/decisions.md.

@@ -1,1 +1,68 @@
 @import "tailwindcss";
+
+@theme {
+  /* Remove Tailwind's default palette; use only the Figma colours */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Gray (content, background, text, icon) — 100 = darkest, as in Figma */
+  --color-gray-100: #213721;
+  --color-gray-80: #3c5e39;
+  --color-gray-60: #617c5f;
+  --color-gray-40: #899f87;
+  --color-gray-20: #c7d1c6;
+  --color-gray-0: #f2f6ef;
+
+  /* Primary (action) */
+  --color-primary: #213721;
+  --color-primary-surface: #e4ece0;
+  --color-primary-border: #c8d8c0;
+  --color-primary-hover: #496839;
+  --color-primary-pressed: #101c10;
+
+  /* Accent */
+  --color-success: #56cdad;
+  --color-error: #f04e38;
+  --color-warning: #ffb836;
+  --color-blue: #26a4ff;
+
+  /* Fonts */
+  --font-heading: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Aileron", ui-sans-serif, system-ui, sans-serif;
+
+  /* Headings: fluid from 375px to 1440px */
+  --text-h1: clamp(3rem, 1.680rem + 5.634vw, 6.75rem);
+  --text-h1--line-height: 1.1;
+  --text-h2: clamp(2.5rem, 2.148rem + 1.502vw, 3.5rem);
+  --text-h2--line-height: 1.2;
+  --text-h3: clamp(2rem, 1.824rem + 0.751vw, 2.5rem);
+  --text-h3--line-height: 1.2;
+  --text-h5: clamp(1.5rem, 1.368rem + 0.563vw, 1.875rem);
+  --text-h5--line-height: 1.2;
+  --text-h6: clamp(1.5rem, 1.412rem + 0.376vw, 1.75rem);
+  --text-h6--line-height: 1.1;
+
+  /* Body */
+  --text-body-xxl: 1.375rem;
+  --text-body-xxl--line-height: 1.4;
+  --text-body-xl: 1.25rem;
+  --text-body-xl--line-height: 1.4;
+  --text-body-l: 1.125rem;
+  --text-body-l--line-height: 1.4;
+  --text-body-m: 1rem;
+  --text-body-m--line-height: 1.4;
+  --text-body-s: 0.875rem;
+  --text-body-s--line-height: 1.4;
+  --text-body-xs: 0.75rem;
+  --text-body-xs--line-height: 1.4;
+
+  /* Motion */
+  --ease-calm: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-gray-0 font-sans text-body-m text-gray-80 antialiased;
+  }
+}

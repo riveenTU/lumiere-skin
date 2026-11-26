@@ -81,8 +81,8 @@ Headings scale smoothly between the mobile and desktop sizes with `clamp()`, cal
   --color-warning: #ffb836;
   --color-blue: #26a4ff;
 
-  /* Fonts — heading font is a stand-in for IvyMode until decided */
-  --font-heading: "Playfair Display", ui-serif, Georgia, serif;
+  /* Fonts — Cormorant Garamond is the free stand-in for IvyMode */
+  --font-heading: "Cormorant Garamond", ui-serif, Georgia, serif;
   --font-sans: "Aileron", ui-sans-serif, system-ui, sans-serif;
 
   /* Headings: fluid from 375px to 1440px */
@@ -122,19 +122,23 @@ Headings scale smoothly between the mobile and desktop sizes with `clamp()`, cal
 }
 ```
 
-Fonts (in `src/main.jsx`, after `npm install @fontsource/aileron`):
+Fonts (in `src/main.jsx`, after `npm install @fontsource/aileron @fontsource/cormorant-garamond`):
 ```js
 import '@fontsource/aileron/300.css';
 import '@fontsource/aileron/300-italic.css';
 import '@fontsource/aileron/400.css';
 import '@fontsource/aileron/600.css';
 import '@fontsource/aileron/700.css';
+import '@fontsource/cormorant-garamond/300.css'; // H1, H2, H5 (Light)
+import '@fontsource/cormorant-garamond/400.css'; // H3 (Regular)
 ```
 
 ## Font decision (IvyMode)
 IvyMode is a paid font. Options:
 1. **Adobe Fonts** — included with any Creative Cloud plan (check whether UTS gives you CC). Exact match; loads from Adobe's servers.
 2. **Free stand-in** — test Playfair Display, Bodoni Moda and Cormorant Garamond (Light) against the Figma H1 ("Let nature take care…") and pick the closest. Note the swap in `docs/decisions.md` and the README.
+
+**Chosen:** Cormorant Garamond (free, Fontsource) as a stand-in for IvyMode. Weights: 300 for H1/H2/H5, 400 for H3.
 
 ## Section map (desktop order)
 
@@ -159,7 +163,8 @@ Shared UI: `Container`, `Button` (solid + outline variants, arrow icon), `Eyebro
 - Brand stays **Velvety**; credit DhuhaCreative in README and footer, plus a small "Concept project, not a real brand" line.
 - "As seen in" strip removed.
 - Frames 1440 / 375. No H4. IvyMode Light except H3 (Regular). No letter spacing.
-- Still open: IvyMode (Adobe Fonts vs free stand-in); page side padding / content width.
+- Heading font: Cormorant Garamond (free, Fontsource) as a stand-in for IvyMode. Note the swap in the README.
+- Still open: page side padding / content width.
 
 ## Design references for Claude Code
 Exports live in `design/` (full pages + one crop per section, desktop and mobile). Point Claude at the matching crop with `@design/...` when planning each section.
